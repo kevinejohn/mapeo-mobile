@@ -48,7 +48,8 @@ const HomeTabs = createBottomTabNavigator(
         if (routeName === "Map") iconName = "map";
         else iconName = "photo-camera";
         return <MaterialIcons name={iconName} size={30} color={tintColor} />;
-      }
+      },
+      tabBarTestID: "tabBarButton" + navigation.state.routeName
     })
   }
 );

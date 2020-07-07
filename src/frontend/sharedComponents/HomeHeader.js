@@ -31,7 +31,8 @@ const HomeHeader = ({ navigation }: { navigation: NavigationProp }) => {
         style={styles.rightButton}
         onPress={() => {
           navigation.navigate("ObservationList");
-        }}>
+        }}
+        testID="observationListButton">
         <ObservationListIcon />
       </IconButton>
     </View>
