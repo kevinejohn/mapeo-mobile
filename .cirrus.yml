@@ -13,6 +13,7 @@ connected_check_task:
     cpu: 8
     memory: 24G
   install_node_script: |
+    apt-get update -y
     apt-get install -y gpg-agent
     curl -sL https://deb.nodesource.com/setup_12.x | bash -
     apt-get install -y nodejs
