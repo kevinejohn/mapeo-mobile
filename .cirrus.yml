@@ -10,8 +10,8 @@ connected_check_task:
   container:
     image: reactivecircus/android-emulator-${API_LEVEL}:v2020_06_25-08-44-50
     kvm: true
-    cpu: 8
-    memory: 24G
+    cpu: 4
+    memory: 16G
   install_node_script: |
     apt-get update -y
     apt-get install -y gpg-agent
