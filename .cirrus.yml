@@ -8,11 +8,12 @@ connected_check_task:
     JAVA_TOOL_OPTIONS: -Xmx6g
     GRADLE_OPTS: -Dorg.gradle.daemon=false -Dkotlin.incremental=false -Dkotlin.compiler.execution.strategy=in-process
   container:
-    image: reactnativecommunity/react-native-android
+    image: reactivecircus/android-emulator-${API_LEVEL}:latest
     kvm: true
     cpu: 8
     memory: 24G
   install_node_script: |
+    apt-get install -y gpg-agent
     curl -sL https://deb.nodesource.com/setup_12.x | bash -
     apt-get install -y nodejs
   npm_install_script: |
