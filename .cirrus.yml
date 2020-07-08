@@ -8,10 +8,10 @@ connected_check_task:
     JAVA_TOOL_OPTIONS: -Xmx6g
     GRADLE_OPTS: -Dorg.gradle.daemon=false -Dkotlin.incremental=false -Dkotlin.compiler.execution.strategy=in-process
   container:
-    image: reactivecircus/android-emulator-${API_LEVEL}:v2020_06_25-08-44-50
+    image: reactivecircus/android-emulator-${API_LEVEL}:v2020_06_25-08-51-15
     kvm: true
     cpu: 4
-    memory: 16G
+    memory: 24G
   install_node_script: |
     apt-get update -y
     apt-get install -y gpg-agent
