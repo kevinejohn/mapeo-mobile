@@ -22,6 +22,7 @@ connected_check_task:
     echo no | avdmanager create avd --force --name emu --abi "${TARGET}/${ARCH}" --device "Nexus 6" --package "system-images;android-${API_LEVEL};${TARGET};${ARCH}"
     echo "Emulator version:"
     $ANDROID_HOME/emulator/emulator @emu -version
+    $ANDROID_HOME/emulator/emulator -list-avds
     echo "Hardware acceleration:"
     $ANDROID_HOME/emulator/emulator -accel-check
     echo "\nEmulator config"
@@ -35,6 +36,7 @@ connected_check_task:
   metro_background_script: npm start
   run_tests_script: |
     adb devices
+    $ANDROID_HOME/emulator/emulator -list-avds
     mkdir -p artifacts
     npm run test-detox-android -- --record-videos all --record-logs all
   always:

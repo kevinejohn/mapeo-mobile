@@ -1,0 +1,24 @@
+diff --git a/node_modules/detox/src/devices/drivers/android/tools/BinaryExec.js b/node_modules/detox/src/devices/drivers/android/tools/BinaryExec.js
+index 668ede0..0dddd21 100644
+--- a/node_modules/detox/src/devices/drivers/android/tools/BinaryExec.js
++++ b/node_modules/detox/src/devices/drivers/android/tools/BinaryExec.js
+@@ -25,6 +25,7 @@ class BinaryExec {
+   }
+ 
+   async exec(command) {
++    console.log("running command", `"${this.binary}" ${command._getArgsString()}`)
+     return (await exec(`"${this.binary}" ${command._getArgsString()}`)).stdout;
+   }
+ 
+diff --git a/node_modules/detox/src/devices/drivers/android/tools/EmulatorExec.js b/node_modules/detox/src/devices/drivers/android/tools/EmulatorExec.js
+index 657f13e..43166c0 100644
+--- a/node_modules/detox/src/devices/drivers/android/tools/EmulatorExec.js
++++ b/node_modules/detox/src/devices/drivers/android/tools/EmulatorExec.js
+@@ -15,6 +15,7 @@ class EmulatorExec extends BinaryExec {
+ 
+ class ListAVDsCommand extends ExecCommand {
+   _getArgs() {
++    console.log("Emulator path: ", getAndroidEmulatorPath())
+     return ['-list-avds', '--verbose'];
+   }
+ }
