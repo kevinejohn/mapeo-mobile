@@ -37,6 +37,8 @@ connected_check_task:
   run_tests_script: |
     adb devices
     $ANDROID_HOME/emulator/emulator -list-avds
+    ! ls -al $ANDROID_HOME/avd
+    ! ls -al ~/.android/avd
     mkdir -p artifacts
     npm run test-detox-android -- --record-videos all --record-logs all
   always:

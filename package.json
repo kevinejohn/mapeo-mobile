@@ -32,7 +32,7 @@
     "jetify": "jetify",
     "extract-messages": "extract-messages --locales=en --output messages --descriptions 'src/frontend/**/*.js'",
     "build-detox-android": "RN_SRC_EXT=e2e.js detox build -c android.emu.release",
-    "test-detox-android": "RN_SRC_EXT=e2e.js detox test -c android.emu.release -l trace"
+    "test-detox-android": "RN_SRC_EXT=e2e.js detox test -c android.emu.release -l trace -n emulator-5554"
   },
   "husky": {
     "hooks": {
