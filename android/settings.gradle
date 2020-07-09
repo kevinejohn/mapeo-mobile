@@ -1,3 +1,18 @@
+ext.isCiServer = System.getenv().containsKey("CIRRUS_CI")
+// ext.isMasterBranch = System.getenv()["CIRRUS_BRANCH"] == "master"
+ext.buildCacheHost = System.getenv().getOrDefault("CIRRUS_HTTP_CACHE_HOST", "localhost:12321")
+
+buildCache {
+  local {
+    enabled = !isCiServer
+  }
+  remote(HttpBuildCache) {
+    url = "http://${buildCacheHost}/"
+    enabled = isCiServer
+    push = true
+  }
+}
+
 rootProject.name = 'mapeo'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 
